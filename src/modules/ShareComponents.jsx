@@ -1,24 +1,21 @@
 import React from "react";
-
-import About from "../About";
-import Home from "../Home";
-import Topics from "../Topics";
-
 import {   Switch, Route  } from "react-router-dom";
-import ProductList from "../components/products/ProductList/ProductList";
-import ProductEdit from "../components/products/ProductEdit";
-import Checking from "../../../../projects/psa-frontend/src/components/Checking/Checking";
-import AddChild from "../../../../projects/psa-frontend/src/components/Home/AddChild";
+import Home from "../components/Home/Home";
+import Checking from "../components/Checking/Checking";
+import AddChild from "../components/Home/AddChild";
+import ListChildren from "../components/Home/ListChildren";
+
 export default function ShareComponents(props) {
- 
+
   //todo:Handler all using json conf
     return (<>
-    
+
                 <Switch>
                   <Route path="/checking"><Checking {...props} /></Route>
+                    {/* eslint-disable-next-line react/jsx-no-undef */}
                   <Route path="/addChild"><AddChild {...props}  /></Route>
 
-                  <Route path="/"><Home  {...props} /></Route>
+                  <Route path="/"><ListChildren  {...props} /></Route>
                 </Switch>
     </>);
 }

@@ -1,6 +1,6 @@
 const Settings ={
-    url:'http://96.30.193.49:8080',
-    auth:'/oauth/token',
+    url:'https://sleepy-stream-75348.herokuapp.com',
+    auth:'/auth/local',
     
     products:{get:'/api/v1/products/'},
 

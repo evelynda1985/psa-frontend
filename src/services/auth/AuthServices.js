@@ -4,16 +4,15 @@ import Settings from "../../Settings";
 
 const AuthServices = {
     doLogin: user => {
-        const credenciales = btoa(`${Settings.SecurityCredentials.user}:${Settings.SecurityCredentials.password}`);
 
         const httpHeaders = {
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-            Authorization: "Basic " + credenciales
+
         };
 
         let data = {
             grant_type: "password",
-            username: user.username,
+            identifier: user.username,
             password: user.password
         };
 

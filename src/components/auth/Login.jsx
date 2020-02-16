@@ -1,10 +1,8 @@
 import React from "react";
 import { Form, Icon, Input, Button, Checkbox,Row, Col,Modal ,Layout  } from "antd";
-
-
-
-
 import AuthServices from "../../services/auth/AuthServices";
+
+
 
 const { Header, Footer,  Content } = Layout;
 

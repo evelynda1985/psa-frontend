@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AddChild(){
-    return <h2>AddChild</h2>;
+export default function ListChildren(props){
+    return <h2>List</h2>;
 
 }
