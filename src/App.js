@@ -1,6 +1,6 @@
-
 import React, {useState, useEffect} from "react";
 import { Layout } from 'antd';
+import './psaStyle.css';
 
 import {
   BrowserRouter as Router,

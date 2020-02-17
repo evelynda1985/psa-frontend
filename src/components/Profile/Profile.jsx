@@ -2,33 +2,23 @@ import React from "react";
 import {
     Form,
     Input,
-    Tooltip,
-    Icon,
-    Cascader,
     Select,
-    Row,
-    Col,
-    Checkbox,
     Button,
-    AutoComplete,
     DatePicker,
 } from 'antd';
 
 
-export default function AddChild(props) {
+export default function Profile(props) {
     const { Option } = Select;
     const { Search } = Input;
     const  formLayout  = 'horizontal';
     const formItemLayout =
         formLayout === 'horizontal'
-             ?{
+            ?{
                 labelCol: { span: 5 },
                 wrapperCol: { span: 10,  offset: 2 }
             }
             : null;
-    const config = {
-        rules: [{ type: 'object', required: true, message: 'Please select time!' }],
-    };
     return (
         <>
             <Form {...formItemLayout} >
@@ -45,10 +35,10 @@ export default function AddChild(props) {
                     </Select>
                 </Form.Item>
                 <Form.Item label="School Grade" hasFeedback>
-                        <Select placeholder="Please select the School grade of the child">
-                            <Option value="china">China</Option>
-                            <Option value="usa">U.S.A</Option>
-                        </Select>
+                    <Select placeholder="Please select the School grade of the child">
+                        <Option value="china">China</Option>
+                        <Option value="usa">U.S.A</Option>
+                    </Select>
                 </Form.Item>
                 <Form.Item label="School Name" hasFeedback>
                     <Search

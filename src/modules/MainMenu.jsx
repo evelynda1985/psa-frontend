@@ -31,7 +31,12 @@ export default function MainMenu(props) {
           </Link>
         </Menu.Item>
 
-
+        <Menu.Item key="4">
+          <Link to="/profile">
+            <Icon type="rocket" />
+            <span>My Profile</span>
+          </Link>
+        </Menu.Item>
 
         <Menu.Item key="10" onClick={props.logout}>
           <Icon type="logout" />

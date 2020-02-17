@@ -1,0 +1,13 @@
+.register{
+    width: 20%;
+    Justify-Content: center;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: #1890ff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: x-large;
+}
