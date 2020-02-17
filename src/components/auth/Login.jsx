@@ -17,7 +17,10 @@ class NormalLoginForm extends React.Component {
                 AuthServices.doLogin(values).then(response => {
                     this.props.setUser(response.data);
                 }).catch(error => {
-                    Modal.error({title: 'Error', content: error.response.data.error_description});
+                    if (error.response.status === 400)
+                    {
+                        Modal.error({ title: 'Error',  content: error.response.data.message[0]['messages'][0].message});
+                    }
                 });
                 ;console.log("Received values of form: ", values);
             }
