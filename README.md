@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+https://dry-stream-86011.herokuapp.com/
+https://sleepy-stream-75348.herokuapp.com/
 
 In the project directory, you can run:
 
