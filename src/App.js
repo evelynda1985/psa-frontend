@@ -26,7 +26,8 @@ function App() {
   }
 
   const refreshUser = (data) => {
-    data.Authorization=`Bearer ${data.access_token}`
+
+    data.Authorization=`Bearer ${data.jwt}`
     sessionStorage.setItem('userProfile', JSON.stringify(data));
     setUser(data);
   }

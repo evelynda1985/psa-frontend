@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="903b5917-32d7-48d9-9f95-905c55c9f90b" name="Default Changelist" comment="Working">
+    <list default="true" id="903b5917-32d7-48d9-9f95-905c55c9f90b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Checking/Checking.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Checking/Checking.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/ShareComponents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ShareComponents.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,37 +24,6 @@
         <option value="CSS File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>@layout-header-background</find>
-      <find>&lt; AntdComponent</find>
-      <find>webpack.</find>
-      <find>ant-layout-header</find>
-      <find>head</find>
-      <find>LoginComponent</find>
-      <find>Created by Ant UED</find>
-      <find>login-form-forgot</find>
-      <find>rem</find>
-      <find>regi</find>
-      <find>checking</find>
-      <find>login</find>
-      <find>/checkin</find>
-      <find>forgo</find>
-      <find>&lt;h</find>
-      <find>Home</find>
-      <find>list</find>
-      <find>&lt;Home</find>
-      <find>Checking</find>
-      <find>addChild</find>
-      <find>/register</find>
-      <find>register</find>
-      <find>regis</find>
-      <find>&lt;Che</find>
-      <find>profile</find>
-      <find>Profile</find>
-      <find>List</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,6 +93,14 @@
       <updated>1581810474842</updated>
       <workItem from="1581810480059" duration="31452000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix Login">
+      <created>1581975905337</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581975905337</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,11 +119,23 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Login" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1581975829062">
+    <state x="507" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581977212444">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581975829062" />
+    <state x="507" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581977212444" />
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1581975904738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581975904738" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1581975939927">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581975939927" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581975871511">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -151,6 +144,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="203" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581975810029" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1581981777292">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1581981777292" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
