@@ -22,8 +22,8 @@ export default function Home(props){
                     <MainMenu {...props} />
                 </Sider>
                 <Layout>
-                    <Header style={{ background: "#fff", padding: 0 }} />
-                    <PSALogo/>
+                    <Header style={{ background: '#fff', padding: 0 }} />
+
                     <Content style={{ margin: "0 16px" }}>
                         <ShareComponents {...props} />
                     </Content>

@@ -1,23 +1,70 @@
-import React from "react";
-import {Button, DatePicker, Form, Input, Checkbox } from "antd";
+import React, { useState,useEffect, useDebugValue } from 'react';
+import {Skeleton, Switch, Card, Icon, Avatar, Modal, Col} from 'antd';
+import PlaceHolder from "../../modules/PlaceHolder";
+import CheckingServices from "../../services/checking/CheckingServices";
+const { Meta } = Card;
+const DrawCard = (props) =>{
+
+
+    const doChecking = (user) => {
+        CheckingServices.doChecking(props.user,props.event_id).then(response =>
+        {
+            Modal.info({ title: 'Info',  content: response.data.message[0]['messages'][0].message});
+        }).catch(error=>{
+
+            Modal.error({ title: 'Error',  content: 'Error doing checking'});
+        });
+
+    }
+
+    return (<>
+
+
+        <Card style={{ width: 300, marginTop: 16 }} loading={props.loading}
+              actions={[
+                  <Icon type="play-circle" key="play-circle"  onClick={() => doChecking(props.user,props.event_id)} />]}
+        >
+            <Meta
+                avatar={
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                }
+                title={props.title}
+                description={props.description}
+            />
+        </Card>
+    </>)
+}
 
 export default function Checking(props){
-    const  formLayout  = 'horizontal';
-    const formItemLayout =
-        formLayout === 'horizontal'
-            ?{
-                labelCol: { span: 5 },
-                wrapperCol: { span: 10,  offset: 9 }
-            }
-            : null;
+    const [dataSource, setDataSource] = useState([]);
+
+    useEffect(() => {
+        if (props.user)
+        {
+
+            CheckingServices.getEvents(props.user).then(response => {
+
+                setDataSource(response.data);
+            });
+
+        }
+
+
+    }, [props.user]);
 
     return (
         <>
-            <Form {...formItemLayout} >
-                <Form.Item {...formItemLayout}>
-                    <Checkbox >Checking my attendance to the event</Checkbox>
-                </Form.Item>
-            </Form>
+            <PlaceHolder col_left={10}  col_righ={8} >
+                {dataSource.map((event, index) => {
+                    if (event)
+                    {
+                        return (<DrawCard {...props} event_id={event.id}  title={event.name} description={event.school_name.name + "/"+ event.city.name } loading={false}  />);
+                    }
+                    return (<></>);
+                })}
+            </PlaceHolder>
+
+
         </>
     );
 }
