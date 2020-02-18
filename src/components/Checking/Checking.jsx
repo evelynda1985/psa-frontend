@@ -1,18 +1,19 @@
-import React, { useState,useEffect, useDebugValue } from 'react';
-import {Skeleton, Switch, Card, Icon, Avatar, Modal, Col} from 'antd';
+import React, {useEffect, useState} from 'react';
+import {Avatar, Card, Icon, Modal} from 'antd';
 import PlaceHolder from "../../modules/PlaceHolder";
 import CheckingServices from "../../services/checking/CheckingServices";
-const { Meta } = Card;
-const DrawCard = (props) =>{
+
+const {Meta} = Card;
+const DrawCard = (props) => {
 
 
     const doChecking = (user) => {
-        CheckingServices.doChecking(props.user,props.event_id).then(response =>
-        {
-            Modal.info({ title: 'Info',  content: response.data.message[0]['messages'][0].message});
-        }).catch(error=>{
 
-            Modal.error({ title: 'Error',  content: 'Error doing checking'});
+        CheckingServices.doChecking(props.user, props.event_id).then(response => {
+            Modal.success({title: 'Info',content:  "Checking Successful"});
+        }).catch(error => {
+
+            Modal.error({title: 'Error', content: 'Error doing checking'});
         });
 
     }
@@ -20,13 +21,13 @@ const DrawCard = (props) =>{
     return (<>
 
 
-        <Card style={{ width: 300, marginTop: 16 }} loading={props.loading}
+        <Card style={{width: 300, marginTop: 16}} loading={props.loading}
               actions={[
-                  <Icon type="play-circle" key="play-circle"  onClick={() => doChecking(props.user,props.event_id)} />]}
+                  <Icon type="play-circle" key="play-circle" onClick={() => doChecking(props.user, props.event_id)}/>]}
         >
             <Meta
                 avatar={
-                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
                 }
                 title={props.title}
                 description={props.description}
@@ -35,12 +36,11 @@ const DrawCard = (props) =>{
     </>)
 }
 
-export default function Checking(props){
+export default function Checking(props) {
     const [dataSource, setDataSource] = useState([]);
 
     useEffect(() => {
-        if (props.user)
-        {
+        if (props.user) {
 
             CheckingServices.getEvents(props.user).then(response => {
 
@@ -54,11 +54,12 @@ export default function Checking(props){
 
     return (
         <>
-            <PlaceHolder col_left={10}  col_righ={8} >
+            <PlaceHolder col_left={10} col_righ={8}>
                 {dataSource.map((event, index) => {
-                    if (event)
-                    {
-                        return (<DrawCard {...props} event_id={event.id}  title={event.name} description={event.school_name.name + "/"+ event.city.name } loading={false}  />);
+                    if (event) {
+                        return (<DrawCard {...props} event_id={event.id} title={event.name}
+                                          description={event.school_name.name + "/" + event.city.name}
+                                          loading={false}/>);
                     }
                     return (<></>);
                 })}
