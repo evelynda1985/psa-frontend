@@ -54,7 +54,7 @@ export default function Checking(props) {
 
     return (
         <>
-            <PlaceHolder col_left={10} col_righ={8}>
+
                 {dataSource.map((event, index) => {
                     if (event) {
                         return (<DrawCard {...props} event_id={event.id} title={event.name}
@@ -63,7 +63,7 @@ export default function Checking(props) {
                     }
                     return (<></>);
                 })}
-            </PlaceHolder>
+
 
 
         </>
