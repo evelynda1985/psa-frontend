@@ -6,17 +6,23 @@ import ShareComponents from "../../modules/ShareComponents";
 import PSALogo from "../PSALogo/PSALogo";
 
 
-const { Header, Content, Footer, Sider } = Layout;
+
 
 export default function Home(props){
+    const { Header, Content, Footer, Sider } = Layout;
     const {state,onCollapse} = {...props};
     return (
         <Router>
-            <Layout style={{ minHeight: "100vh" }}>
+            <Layout >
                 <Sider
-                    collapsible
-                    collapsed={state.collapsed}
-                    onCollapse={onCollapse}
+                    breakpoint="lg"
+                    collapsedWidth="0"
+                    onBreakpoint={broken => {
+                        console.log(broken);
+                    }}
+                    onCollapse={(collapsed, type) => {
+                        console.log(collapsed, type);
+                    }}
                 >
                     <div className="logo" />
                     <MainMenu {...props} />
