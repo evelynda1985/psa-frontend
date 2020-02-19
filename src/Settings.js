@@ -3,6 +3,7 @@ const Settings ={
     auth:'/auth/local',
 
     events:{get:'/events/',post:'/events/'},
+    children:{get:'/children/',post:'/children/'},
     checking:{post:'/checkings/'},
     
     products:{get:'/api/v1/products/'},
