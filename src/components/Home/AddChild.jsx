@@ -2,69 +2,126 @@ import React from "react";
 import {
     Form,
     Input,
-    Tooltip,
-    Icon,
-    Cascader,
     Select,
-    Row,
-    Col,
-    Checkbox,
     Button,
-    AutoComplete,
-    DatePicker,
+    DatePicker, Col, Row,
 } from 'antd';
+import PSALogo from "../PSALogo/PSALogo";
 
 
-export default function AddChild(props) {
-    const { Option } = Select;
-    const { Search } = Input;
-    const  formLayout  = 'horizontal';
-    const formItemLayout =
-        formLayout === 'horizontal'
-             ?{
-                labelCol: { span: 5 },
-                wrapperCol: { span: 10,  offset: 2 }
+function AddChildForm(props) {
+    const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = props.form;
+    const {Option} = Select;
+    const {Search} = Input;
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
             }
-            : null;
+        });
+    };
+
+
     const config = {
-        rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+        rules: [{type: 'object', required: true, message: 'Please select time!'}],
     };
     return (
         <>
-            <Form {...formItemLayout} >
-                <Form.Item label="Name" {...formItemLayout}>
-                    <Input placeholder="input Name of the child" />
-                </Form.Item>
-                <Form.Item label="Birth Date">
-                    <DatePicker />
-                </Form.Item>
-                <Form.Item label="Gender" hasFeedback>
-                    <Select placeholder="Please select gender of the child">
-                        <Option value="china">China</Option>
-                        <Option value="usa">U.S.A</Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item label="School Grade" hasFeedback>
-                        <Select placeholder="Please select the School grade of the child">
-                            <Option value="china">China</Option>
-                            <Option value="usa">U.S.A</Option>
-                        </Select>
-                </Form.Item>
-                <Form.Item label="School Name" hasFeedback>
-                    <Search
-                        placeholder="input school Name here"
-                        enterButton="Search"
-                        size="large"
-                        onSearch={value => console.log(value)}
-                    />
-                </Form.Item>
-                <Form.Item >
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
-            </Form>
+            <Row>
+                <Row>
+                    <Col span={4}></Col>
+                    <Col span={4}></Col>
+                    <Col span={4}></Col>
+                </Row>
+                <Col span={4}></Col>
+                <Col span={16}>
+                    <Form  onSubmit={handleSubmit} >
+
+                        <Form.Item label="Name">
+                            {getFieldDecorator('name', {
+                                rules: [{ required: true, message: 'Please input your First Name here!' }],
+                            })(<Input placeholder="First Name"/>)}
+                        </Form.Item>
+
+                            <Form.Item label="Birth Date">
+                                {getFieldDecorator('date-picker', config)(<DatePicker />)}
+                            </Form.Item>
+
+                        <Form.Item label="Gender">
+                            {getFieldDecorator('gender', {
+                                rules: [{required: true, message: 'Please select your gender!'}],
+                            })(
+                                <Select
+                                    placeholder="Gender"
+                                >
+                                    <Option value="male">male</Option>
+                                    <Option value="female">female</Option>
+                                    <Option value="female">Other</Option>
+                                </Select>,
+                            )}
+                        </Form.Item>
+
+                        <Form.Item label="School Grade">
+                            {getFieldDecorator('educationalLevel', {
+                                rules: [{required: true, message: 'Please select the School grade of the child'}],
+                            })(
+                                <Select
+                                    placeholder="School Grade"
+                                >
+                                    <Option value="elementary">Elementary School</Option>
+                                    <Option value="highSchool">High School</Option>
+                                    <Option value="bachelor">Bacherlor's degree</Option>
+                                </Select>,
+                            )}
+                        </Form.Item>
+
+                        <Form.Item label="School City" hasFeedback>
+                            {getFieldDecorator('educationalLevel', {
+                                rules: [{required: true, message: 'Please select the School grade of the child'}],
+                            })(
+                            <Search
+                                placeholder="School City"
+                                enterButton="Search"
+                                size="large"
+                                onSearch={value => console.log(value)}
+                            />
+                            )}
+                        </Form.Item>
+
+                        <Form.Item label="School Name" hasFeedback>
+                            {getFieldDecorator('educationalLevel', {
+                                rules: [{required: true, message: 'Please select the School grade of the child'}],
+                            })(
+                            <Search
+                                placeholder="School Name"
+                                enterButton="Search"
+                                size="large"
+                                onSearch={value => console.log(value)}
+                            />
+                            )}
+                        </Form.Item>
+
+                        <Row>
+                            <Col span={10}></Col>
+                            <Col span={4}>
+                                <Form.Item>
+                                    <Button type="primary" htmlType="submit">
+                                        Save
+                                    </Button>
+                                </Form.Item>
+                            </Col>
+                            <Col span={10}></Col>
+                        </Row>
+                    </Form>
+
+                </Col>
+                <Col span={4}></Col>
+            </Row>
         </>
     );
 
 }
+
+const AddChild = Form.create({name: 'addChild'})(AddChildForm);
+export default AddChild;
