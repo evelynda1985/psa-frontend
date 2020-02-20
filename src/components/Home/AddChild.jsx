@@ -10,6 +10,7 @@ import PSALogo from "../PSALogo/PSALogo";
 
 
 function AddChildForm(props) {
+    const formLayout = 'horizontal';
     const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = props.form;
     const {Option} = Select;
     const {Search} = Input;
@@ -22,21 +23,24 @@ function AddChildForm(props) {
         });
     };
 
-
     const config = {
         rules: [{type: 'object', required: true, message: 'Please select time!'}],
     };
+
+    const formItemLayout =
+        formLayout === 'horizontal'
+            ? {
+                labelCol: {span: 10},
+                wrapperCol: {span: 10}
+            }
+            : null;
     return (
         <>
+            <div >
             <Row>
-                <Row>
-                    <Col span={4}></Col>
-                    <Col span={4}></Col>
-                    <Col span={4}></Col>
-                </Row>
                 <Col span={4}></Col>
                 <Col span={16}>
-                    <Form  onSubmit={handleSubmit} >
+                    <Form onSubmit={handleSubmit}  {...formItemLayout}>
 
                         <Form.Item label="Name">
                             {getFieldDecorator('name', {
@@ -118,6 +122,7 @@ function AddChildForm(props) {
                 </Col>
                 <Col span={4}></Col>
             </Row>
+            </div>
         </>
     );
 

@@ -10,11 +10,9 @@ import {
 
 
 function BaseProfile(props) {
-    const {Option} = Select;
-    const {Search} = Input;
     const formLayout = 'horizontal';
     const {getFieldDecorator, getFieldError, isFieldTouched} = props.form;
-    const passwordError = isFieldTouched('password') && getFieldError('password');
+    const {Option} = Select;
     const prefixSelector = getFieldDecorator('prefix', {
         initialValue: '86',
     })(
@@ -30,21 +28,34 @@ function BaseProfile(props) {
                 wrapperCol: {span: 10}
             }
             : null;
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
+
+    const config = {
+        rules: [{type: 'object', required: true, message: 'Please select time!'}],
+    };
     return (
         <>
             <Row>
                 <Col span={4}></Col>
                 <Col span={16}>
-                    <Form {...formItemLayout} >
+                    <Form onSubmit={handleSubmit}  {...formItemLayout} >
 
                         <Form.Item label="First Name">
-                            {getFieldDecorator('note', {
+                            {getFieldDecorator('firstName', {
                                 rules: [{ required: true, message: 'Please input your First Name here!' }],
                             })(<Input placeholder="Please input your First Name!"/>)}
                         </Form.Item>
 
-                        <Form.Item label="First Name">
-                            {getFieldDecorator('note', {
+                        <Form.Item label="Last Name">
+                            {getFieldDecorator('lastName', {
                                 rules: [{ required: true, message: 'Please input your Last Name here!' }],
                             })(<Input placeholder="Please input your Last Name!"/>)}
                         </Form.Item>
@@ -79,13 +90,13 @@ function BaseProfile(props) {
                                 >
                                     <Option value="male">male</Option>
                                     <Option value="female">female</Option>
-                                    <Option value="female">Other</Option>
+                                    <Option value="Other">Other</Option>
                                 </Select>,
                             )}
                         </Form.Item>
 
                         <Form.Item label="Educational Level">
-                            {getFieldDecorator('educationalLevel', {
+                            {getFieldDecorator('education', {
                                 rules: [{required: true, message: 'Please select your Educational Level!'}],
                             })(
                                 <Select
@@ -112,7 +123,7 @@ function BaseProfile(props) {
                         </Form.Item>
 
                         <Form.Item label="Annual Household Income">
-                            {getFieldDecorator('annualHouseIncome', {
+                            {getFieldDecorator('householdIncome', {
                                 rules: [{required: true, message: 'Please select your Household Income!'}],
                             })(
                                 <Select

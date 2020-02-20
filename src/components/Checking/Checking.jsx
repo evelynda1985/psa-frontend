@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Icon, Modal} from 'antd';
+import {Avatar, Card, Col, Icon, Modal, Row} from 'antd';
 import PlaceHolder from "../../modules/PlaceHolder";
 import CheckingServices from "../../services/checking/CheckingServices";
 
@@ -10,7 +10,7 @@ const DrawCard = (props) => {
     const doChecking = (user) => {
 
         CheckingServices.doChecking(props.user, props.event_id).then(response => {
-            Modal.success({title: 'Info',content:  "Checking Successful"});
+            Modal.success({title: 'Info', content: "Checking Successful"});
         }).catch(error => {
 
             Modal.error({title: 'Error', content: 'Error doing checking'});
@@ -54,18 +54,20 @@ export default function Checking(props) {
 
     return (
         <>
-
-                {dataSource.map((event, index) => {
-                    if (event) {
-                        return (<DrawCard {...props} event_id={event.id} title={event.name}
-                                          description={event.school_name.name + "/" + event.city.name}
-                                          loading={false}/>);
-                    }
-                    return (<></>);
-                })}
-
-
-
+            <Row>
+                <Col span={8}></Col>
+                <Col span={8}>
+                    {dataSource.map((event, index) => {
+                        if (event) {
+                            return (<DrawCard {...props} event_id={event.id} title={event.name}
+                                              description={event.school_name.name + "/" + event.city.name}
+                                              loading={false}/>);
+                        }
+                        return (<></>);
+                    })}
+                </Col>
+                <Col span={8}></Col>
+            </Row>
         </>
     );
 }
